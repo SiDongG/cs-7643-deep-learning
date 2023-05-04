@@ -71,6 +71,7 @@ class ClassifierTrainer(object):
 
       # get batch of data
       if sample_batches:
+        # Randomly choosing elements from X and Y
         batch_mask = np.random.choice(N, batch_size)
         X_batch = X[batch_mask]
         y_batch = y[batch_mask]
@@ -122,6 +123,7 @@ class ClassifierTrainer(object):
           raise ValueError('Unrecognized update type "%s"' % update)
 
         # update the parameters
+        # GD calculation, the model is some data set to be GDed on 
         model[p] += dx
 
       # every epoch perform an evaluation on the validation set
