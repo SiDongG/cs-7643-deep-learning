@@ -41,7 +41,7 @@ def affine_backward(dout, cache):
     - x: Input data, of shape (N, d_1, ... d_k)
     - w: Weights, of shape (D, M)
 
-  Returns a tuple of:
+  Returns a tuple of:s
   - dx: Gradient with respect to x, of shape (N, d1, ..., d_k)
   - dw: Gradient with respect to w, of shape (D, M)
   - db: Gradient with respect to b, of shape (M,)
