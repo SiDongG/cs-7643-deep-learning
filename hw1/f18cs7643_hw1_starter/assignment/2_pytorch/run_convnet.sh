@@ -4,7 +4,7 @@
 #       number of epochs, weigh decay factor, momentum, batch size, learning 
 #       rate mentioned here to achieve good performance
 #############################################################################
-python -u train.py \
+python3 -u train.py \
     --model convnet \
     --kernel-size 7 \
     --hidden-dim 32 \
