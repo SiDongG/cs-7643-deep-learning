@@ -8,7 +8,7 @@ python3 -u train.py \
     --model convnet \
     --kernel-size 7 \
     --hidden-dim 32 \
-    --epochs 1 \
+    --epochs 5\
     --weight-decay 0.001 \
     --momentum 0.9 \
     --batch-size 50 \
