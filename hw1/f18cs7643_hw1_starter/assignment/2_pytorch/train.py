@@ -167,6 +167,9 @@ def evaluate(split, verbose=False, n_batches=None):
             data, target = data.cuda(), target.cuda()
         data, target = Variable(data, volatile=True), Variable(target)
         output = model(data)
+        print(target)
+        print(output)
+        print(criterion(output,target))
         loss += criterion(output, target, size_average=False).data[0]
         # predict the argmax of the log-probabilities
         pred = output.data.max(1, keepdim=True)[1]
