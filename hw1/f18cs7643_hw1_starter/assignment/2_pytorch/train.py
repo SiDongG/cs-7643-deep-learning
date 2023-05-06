@@ -141,7 +141,7 @@ def train(epoch):
         #############################################################################
         if batch_idx % args.log_interval == 0:
             val_loss, val_acc = evaluate('val', n_batches=4)
-            train_loss = loss.data[0]
+            train_loss = loss.item()
             examples_this_epoch = batch_idx * len(images)
             epoch_progress = 100. * batch_idx / len(train_loader)
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\t'
@@ -167,10 +167,7 @@ def evaluate(split, verbose=False, n_batches=None):
             data, target = data.cuda(), target.cuda()
         data, target = Variable(data, volatile=True), Variable(target)
         output = model(data)
-        print(target)
-        print(output)
-        print(criterion(output,target))
-        loss += criterion(output, target, size_average=False).data[0]
+        loss += criterion(output, target, size_average=False).item()
         # predict the argmax of the log-probabilities
         pred = output.data.max(1, keepdim=True)[1]
         correct += pred.eq(target.data.view_as(pred)).cpu().sum()
